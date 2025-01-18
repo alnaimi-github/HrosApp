@@ -1,0 +1,12 @@
+<div>
+    <label for="search">show category</label>
+    <select  [(ngModel)]="selectedCatId">
+      <option value="0">All</option>
+      <option *ngFor="let category of categories"   [value]="category.id">{{category.name}}</option>
+    </select>
+  
+  </div>
+
+  <app-products [receiveCategoryId]="selectedCatId" (onTotalPriceChanged)="calacTotalPrice($event)"></app-products>
+
+  <h2>Total price:<span>{{receviedTotalPrice}}</span></h2>
