@@ -10,8 +10,7 @@ import { OrderComponent } from './Components/order/order.component';
   imports: [
     HeaderComponent,
     FooterComponent,
-    OrderComponent,
-    SliderComponent
+    RouterOutlet
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

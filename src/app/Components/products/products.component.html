@@ -5,7 +5,7 @@
 <section style="background-color: #eee;">
     <div class="container py-5">
       <div class="row">
-        <ng-container *ngFor="let product of filteredProducts">
+        <ng-container  *ngFor="let product of filteredProducts">
         <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
           <div class="card"  appCard="gray"  externalColor="pink">
             <div class="d-flex justify-content-between p-3">
@@ -23,13 +23,13 @@
                 <p class="small"><a href="#!" class="text-muted">{{product.name}}</a></p>
                 <p class="small text-danger"><s>{{product.price | currency:'EUR'}}</s></p>
               </div>
-  
+
               <div class="d-flex justify-content-between mb-2">
                 <p [style.background-color]="(product.quentity==5)?'red':'yellow'"
                  class="text-muted mb-0"
-      
+
                  >Available: <span class="fw-bold" *ngIf="product.quentity!=2;else lastItem">{{product.quentity}}
-                
+
                  </span></p>
                  <ng-template #lastItem><span>Last {{product.quentity}} </span></ng-template>
                 <div class="ms-auto text-warning">
@@ -39,9 +39,10 @@
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
 
-                  <input type="number" #count (change)="Buy(count.valueAsNumber,product.price)"/>
+                  <input type="number"  #count (change)="Buy(count.valueAsNumber,product.price)"/>
                   <button type="button" class="btn  btn-success" (click)="Buy(count.valueAsNumber,product.price)">buy</button>
-               
+                  <button type="button" class="btn  btn-success" [routerLink]="['/Details',product.id]">Details</button>
+
                 </div>
               </div>
             </div>
@@ -49,6 +50,6 @@
         </div>
       </ng-container>
       </div>
-      
+
     </div>
   </section>
